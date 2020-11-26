@@ -1,3 +1,3 @@
 # README
 
-Heroku nous mène la vie MEGA SUPER dure
+Heroku c'est chiant à mourir
