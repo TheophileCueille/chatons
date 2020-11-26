@@ -1,3 +1,3 @@
 # README
 
-Heroku nous mène la vie dure
+Heroku nous mène la vie MEGA SUPER dure
