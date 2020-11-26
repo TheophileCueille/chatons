@@ -1,3 +1,3 @@
 # README
 
-Heroku c'est chiant à mourir
+Heroku c'est compliqué
