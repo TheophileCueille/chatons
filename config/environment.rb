@@ -6,12 +6,11 @@ Rails.application.initialize!
 
 
   ActionMailer::Base.smtp_settings = {
-    
+    :user_name => ENV['SENDGRID_LOGIN'],
+    :password => ENV['SENDGRID_PWD'],
     :domain => 'gmail.com',
     :address => 'smtp.gmail.com',
     :port => 587,
     :authentication => :plain,
-    #enable_starttls_auto => true,
-    :user_name          => ENV['GMAIL_LOGIN'],
-    :password           => ENV['GMAIL_PWD'],
+    :enable_starttls_auto => true,
   }
