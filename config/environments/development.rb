@@ -16,6 +16,9 @@ Rails.application.configure do
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
+    #nouveau dans le game :
+    config.action_controller.enable_fragment_cache_logging = true
+
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
@@ -31,11 +34,12 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
   # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_url_options = { :host => "https://chatons-mailer-izdea0be2bpjaxn.herokuapp.com/" }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
 
 
   # Print deprecation notices to the Rails logger.
@@ -62,11 +66,4 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-
-  #------aide stackoverflow-----
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
 end
