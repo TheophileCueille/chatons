@@ -7,10 +7,15 @@ class User < ApplicationRecord
          has_one_attached :avatar
    validates_presence_of :first_name, :last_name
 
-   after_create :welcome_send
+   after_create :welcome_send, :confirmation
 
   def welcome_send
-    UserMailer.welcome_email(self).deliver_now
+    User.welcome_email(self).deliver_now
   end
+
+
+  def confirmation
+    User.confirmation_instructions(self).deliver_now
+  end 
 
 end
